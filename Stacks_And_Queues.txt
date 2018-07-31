@@ -1,0 +1,77 @@
+Exercises
+For exercises requiring code, you are free to use the language of your choice.
+
+
+1. What is the main difference between a stack and a queue?
+
+A:
+
+A stack implements a Last in, First Out priority and a Queue implements a First In, First Out priority
+
+2. What are the similarities between stacks and queues?
+
+A:
+
+both data structures add elements at the end of the array. In Javascript, it can be done by array.prototype.push().
+
+3.Imagine you are an engineer tasked with implementing the UNDO and REDO options 
+in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A:
+
+The UNDO function would follow a Last In, First Out data structure. The ranking of tasks requires that the most 
+recent event triggered by the user be the first one to get 'Undone'.
+
+The REDO function implements a FIFO heirarchy. The collection of events stored initiated by the UNDO fucntion needs
+to be returned where the earliest input be put back into order first down to the latest event triggered.
+
+
+
+Programming Questions
+You may program the following question in any language of your choice. Before you begin coding, write out a 
+plan as to how you will solve the question.
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+```JS
+
+function reverseString(str) {
+  var splitString = str.split("");
+  var reverseArray = splitString.reverse();
+  var joinArray = reverseArray.join("");
+  return joinArray;
+}
+console.log(reverseString('ABCDEFGHIJKLMNOPQSTUVWXYZ'));
+
+```
+
+2. Implement the delete functionality of a stack using one queue. Make a FIFO data structure mirror the 
+functionality of a LIFO data structure.
+
+To delete an item, take all of the elements in the queue one at a time and put them at the end of the 
+queue, except for the last one which should be deleted and returned.
+
+```JS
+
+var arr = [1,2,3,4,5,6,7,8,9];
+function stack(arr) {
+  var rev = arr.reverse(); // [9,8,7,6,5,4,3,2,1]
+  var removeLast = rev.pop(); // [9,8,7,6,5,4,3,2]
+  return removeLast; // 1
+}
+console.log(stack(arr));
+
+```
+3. Fill in the methods for the following Queue class so that it will work as expected (FIFO).
+
+```JS
+
+var arr = [1,2,3,4,5,6,7,8,9];
+function stack(arr,item) {
+  arr.shift(); // [1]
+  var addItem = arr.push(item); // [100]
+  return arr; // [2,3,4,5,6,7,8,9,100]
+}
+console.log(stack(arr,100));
+
+```

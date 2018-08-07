@@ -35,13 +35,26 @@ plan as to how you will solve the question.
 
 ```JS
 
-function reverseString(str) {
-  var splitString = str.split("");
-  var reverseArray = splitString.reverse();
-  var joinArray = reverseArray.join("");
-  return joinArray;
+function stackQue(word) {
+
+  var letters = [];
+
+  var revWord = "";
+
+    for (var i = 0; i < word.length; i++) {
+      letters.push(word[i]);
+    }
+
+
+    for (var v = 0; v < word.length; v++) {
+      revWord += letters.pop();
+    }
+
+    return revWord;
+
 }
-console.log(reverseString('ABCDEFGHIJKLMNOPQSTUVWXYZ'));
+
+console.log(stackQue(word));
 
 ```
 
@@ -53,25 +66,41 @@ queue, except for the last one which should be deleted and returned.
 
 ```JS
 
-var arr = [1,2,3,4,5,6,7,8,9];
-function stack(arr) {
-  var rev = arr.reverse(); // [9,8,7,6,5,4,3,2,1]
-  var removeLast = rev.pop(); // [9,8,7,6,5,4,3,2]
-  return removeLast; // 1
+var queue = [1,2,3,4,5];
+function pop(queue) {
+  var newArr = [];
+  if(queue.length!=0) {
+    var removeFirstItem = queue.shift();
+    var addToLast = newArr.push(removeFirstItem);
+    return addToLast;
+  }
+  
+  else {
+    return queue;
+  }
 }
-console.log(stack(arr));
-
+console.log(pop(queue));
 ```
+
+CLASS Stack
+ FUNCTION pop(queue)
+   ...fill in pseudocode here
+ END FUNCTION
+END CLASS
+
+
 3. Fill in the methods for the following Queue class so that it will work as expected (FIFO).
 
 ```JS
 
-var arr = [1,2,3,4,5,6,7,8,9];
-function stack(arr,item) {
-  arr.shift(); // [1]
-  var addItem = arr.push(item); // [100]
-  return arr; // [2,3,4,5,6,7,8,9,100]
-}
-console.log(stack(arr,100));
+CLASS QUEUE
+ FUNCTION enqueue(element)
+   array.push(element);
+ END FUNCTION
+
+ FUNCTION dequeue
+   return array.shift(element);
+ END FUNCTION
+END CLASS
 
 ```
